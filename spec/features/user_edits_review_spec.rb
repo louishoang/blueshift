@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature "User adds review" do
+feature "user edits review" do
 
-  scenario 'authenticated user creates review for a show' do
+  scenario 'authenticated user edits review for a show that they wrote' do
 
     user = FactoryGirl.create(:user)
     show = FactoryGirl.create(:show)
@@ -18,6 +18,14 @@ feature "User adds review" do
     fill_in "Body", with: review.body
     click_on "Add review"
 
-    expect(page).to have_content("Review created successfully")
+    click_on "Edit review"
+
+    fill_in "Title", with: review.title
+    fill_in "Body", with: review.body
+    save_and_open_page
+    click_on "Edit review"
+
+    expect(page).to have_content("Review updated successfully")
+
   end
 end
