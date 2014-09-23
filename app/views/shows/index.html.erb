@@ -1,0 +1,7 @@
+List of shows:
+
+<% @shows.each do |show| %>
+  <%= link_to show.name, show_path(show) %>
+<% end %>
+
+

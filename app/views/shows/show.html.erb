@@ -1,0 +1,12 @@
+<h2>Add Review Here</h2>
+
+<%= form_for [@show, @review] do |f| %>
+
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title %></div>
+
+  <div><%= f.label :body %><br />
+  <%= f.text_area :body %></div>
+
+  <div><%= f.submit "Add review" %></div>
+<% end %>
