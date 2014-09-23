@@ -10,3 +10,18 @@
 
   <div><%= f.submit "Add review" %></div>
 <% end %>
+
+<ul>
+<% @show.reviews.each do |review| %>
+  <li>
+    <p>
+      <%= review.title %>
+    </p>
+    <p>
+      <%= review.body %>
+    </p>
+    <%= link_to "Edit review", edit_show_review_path(@show, review) %>
+  </li>
+
+<% end %>
+</ul>
