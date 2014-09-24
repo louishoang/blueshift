@@ -8,11 +8,9 @@ FactoryGirl.define do
       "Show #{n} is about a bunch of people doing a bunch of things"
     end
 
-    genre_id 3
-
     year 2003
 
-
+    association :genre
   end
 end
 

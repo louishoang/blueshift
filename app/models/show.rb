@@ -6,6 +6,6 @@ class Show < ActiveRecord::Base
     presence: true, uniqueness: true
   validates :description,
     presence: true
-  validates :genre_id,
+  validates :genre,
     presence: true
 end
