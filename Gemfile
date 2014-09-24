@@ -35,8 +35,5 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'factory_girl'
+  gem 'httparty'
 end
-
-
-
-
