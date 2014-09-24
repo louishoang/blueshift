@@ -21,6 +21,7 @@
       <%= review.body %>
     </p>
     <%= link_to "Edit review", edit_show_review_path(@show, review) %>
+    <%= link_to "Delete review", show_review_path(@show, review) %>
   </li>
 
 <% end %>
