@@ -10,7 +10,7 @@ FactoryGirl.define do
 
     genre_id 3
 
-    running_dates "March 2010 - July 2012"
+    year 2003
 
 
   end
