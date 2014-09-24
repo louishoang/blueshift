@@ -1,15 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: "hah3", profile_photo: "string_url_of_photo")
-Review.create
+#Genre seeder
+genre_url = 'http://api.trakt.tv/genres/shows.json/b6cb98c70268917b494f3ed68fd73720'
+response = HTTParty.get(genre_url)
+genres = JSON.parse(response.body)
 
-Genre.create!(name: "Comedy")
+i = 0
+id = 1
+genres.each do |genre|
+  genres[i]["id"] = id
+  Genre.create!(name: genre["name"])
+  i += 1
+  id += 1
+end
 
-Show.create!(name: "Big Bang Theory", description: "A story about nerds", genre_id: 1, running_dates: "Sep 2006 - Current")
+genre_and_genre_id = Hash.new
 
+genres.each do |genre|
+  genre_and_genre_id[genre["name"]] = genre["id"]
+end
+
+show_url = 'http://api.trakt.tv/search/shows.json/b6cb98c70268917b494f3ed68fd73720?query=star'
+response = HTTParty.get(show_url)
+shows = JSON.parse(response.body)
+
+shows.each do |show|
+  Show.create(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"])
+end
+
+# User.create(username: "hah3", profile_photo: "string_url_of_photo")
+# Review.create
