@@ -29,16 +29,13 @@ gem 'spring',        group: :development
 gem 'devise'
 
 group :development, :test do
-  gem 'shoulda'
   gem 'valid_attribute'
+  gem 'shoulda'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'factory_girl'
+  gem 'httparty'
 end
-
-
-
-

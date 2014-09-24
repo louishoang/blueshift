@@ -5,9 +5,9 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :show
 
-  validates :user_id,
-    presence: true, uniqueness: true
-  validates :show_id,
+  validates :user,
+    presence: true
+  validates :show,
     presence: true
   validates :title,
     presence: true
