@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-feature "user edits review" do
+feature "User deletes review" do
 
-  scenario 'authenticated user edits review for a show that they wrote' do
+  scenario 'authenticated user deletes a review they created for a show' do
 
     user = FactoryGirl.create(:user)
     show = FactoryGirl.create(:show)
@@ -17,14 +17,8 @@ feature "user edits review" do
     fill_in "Title", with: review.title
     fill_in "Body", with: review.body
     click_on "Add review"
-
-    click_on "Edit review"
-
-    fill_in "Title", with: review.title
-    fill_in "Body", with: review.body
-    click_on "Edit review"
-
-    expect(page).to have_content("Review updated successfully")
+    click_on "Delete review"
+    expect(page).to have_content("Review deleted successfully")
 
   end
 end
