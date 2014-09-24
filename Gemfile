@@ -29,6 +29,8 @@ gem 'spring',        group: :development
 gem 'devise'
 
 group :development, :test do
+  gem 'valid_attribute'
+  gem 'shoulda'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
