@@ -8,7 +8,7 @@
   <div><%= f.label :body %><br />
   <%= f.text_area :body %></div>
 
-  <div><%= f.submit "Add review" %></div>
+  <div><%= f.submit "Add review" %> </div>
 <% end %>
 
 <ul>
@@ -20,9 +20,16 @@
     <p>
       <%= review.body %>
     </p>
+    <ul>
+      <% review.comments.each do |comment| %>
+        <li><%= comment.text %> </li>
+      <% end %>
+    </ul>
     <%= link_to "Edit review", edit_show_review_path(@show, review) %>
     <%= link_to "Delete review", show_review_path(@show, review) %>
+    <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment)   %>
   </li>
 
 <% end %>
+
 </ul>
