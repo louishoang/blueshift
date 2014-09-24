@@ -8,7 +8,7 @@ i = 0
 id = 1
 genres.each do |genre|
   genres[i]["id"] = id
-  Genre.create!(name: genre["name"])
+  Genre.find_or_create_by(name: genre["name"])
   i += 1
   id += 1
 end
@@ -24,7 +24,7 @@ response = HTTParty.get(show_url)
 shows = JSON.parse(response.body)
 
 shows.each do |show|
-  Show.create(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"])
+  Show.find_or_create_by(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"])
 end
 
 # User.create(username: "hah3", profile_photo: "string_url_of_photo")
