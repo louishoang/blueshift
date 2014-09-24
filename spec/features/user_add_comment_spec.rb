@@ -22,7 +22,7 @@ feature "User adds comment" do
 
     fill_in "Text", with: comment.text
     click_on "Submit Comment"
-    save_and_open_page
+
 
 
     expect(page).to have_content("Comment created successfully")
