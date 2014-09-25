@@ -43,6 +43,15 @@ class CommentsController < ApplicationController
 
   end
 
+  def show
+    @comment_id = params[:id]
+    @comment = Comment.destroy(@comment_id)
+    if @comment.save
+      flash[:notice] = "Comment deleted successfully"
+      redirect_to show_path(params[:show_id])
+    end
+  end
+
   private
 
   def comment_params

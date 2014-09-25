@@ -23,16 +23,11 @@ feature "User edits comment" do
 
     fill_in "Text", with: comment.text
     click_on "Submit Comment"
-save_and_open_page
-
     click_on "Edit comment"
 
 
     fill_in "Text", with: comment.text
     click_on "Submit Comment"
-
- save_and_open_page
-
 
     expect(page).to have_content("Comment updated successfully")
   end

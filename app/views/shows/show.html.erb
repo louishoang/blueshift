@@ -23,16 +23,18 @@
     <ul>
       <% review.comments.each do |comment| %>
         <li>
-        <%= comment.text %>
+          <%= comment.text %>
 
-        <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment)   %>
+          <% if comment.owner?(current_user) %>
+            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment)   %>
+            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment)   %>
+          <% end %>
         </li>
       <% end %>
     </ul>
     <%= link_to "Edit review", edit_show_review_path(@show, review) %>
     <%= link_to "Delete review", show_review_path(@show, review) %>
     <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment)   %>
-
   </li>
 
 <% end %>

@@ -10,5 +10,7 @@ FactoryGirl.define do
 
     text "This is my first comment"
 
+    association :review
+    association :user
   end
 end
