@@ -3,26 +3,12 @@ require 'rails_helper'
 feature "User edits comment" do
 
   scenario 'authenticated user edits comment on a review for a show' do
-    user = FactoryGirl.create(:user)
-    show = FactoryGirl.create(:show)
-    review = FactoryGirl.build(:review)
-    comment = FactoryGirl.build(:comment)
+    comment = FactoryGirl.create(:comment)
 
-    sign_in_as(user)
+    sign_in_as(comment.user)
 
-    click_on "See shows"
+     visit show_path(comment.review.show)
 
-    visit show_path(show)
-
-    fill_in "Title", with: review.title
-    fill_in "Body", with: review.body
-    click_on "Add review"
-
-    click_on "Add comment"
-
-
-    fill_in "Text", with: comment.text
-    click_on "Submit Comment"
     click_on "Edit comment"
 
 
@@ -32,4 +18,15 @@ feature "User edits comment" do
     expect(page).to have_content("Comment updated successfully")
   end
 
+
+  scenario 'authenticated user  cannot edit comment on a review for a show submitted by another commenter' do
+    user = FactoryGirl.create(:user)
+    comment = FactoryGirl.create(:comment)
+
+    sign_in_as(user)
+
+     visit show_path(comment.review.show)
+
+    expect(page).to_not have_link("Edit comment")
+  end
 end
