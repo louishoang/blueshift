@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'rails_12factor', group: :production
+
+gem 'httparty'
+
 group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
@@ -37,5 +41,4 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'factory_girl'
-  gem 'httparty'
 end
