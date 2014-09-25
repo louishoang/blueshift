@@ -1,4 +1,11 @@
-<h2>Add Review Here</h2>
+<h2>Show details</h2>
+
+<p><%= @show.name %></p>
+<p><%= @show.genre.name %></p>
+<p><%= @show.description %></p>
+<p><%= @show.year %></p>
+
+<h4>Add Review Here</h4>
 
 <%= form_for [@show, @review] do |f| %>
 

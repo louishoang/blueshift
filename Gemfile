@@ -28,6 +28,8 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda'
