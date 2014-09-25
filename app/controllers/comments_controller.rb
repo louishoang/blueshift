@@ -37,7 +37,6 @@ class CommentsController < ApplicationController
       flash[:notice] = "You didn't enter enough information."
       render :edit
     end
-
   end
 
   def show

@@ -7,7 +7,6 @@ describe Comment do
     it { should ensure_length_of(:text).is_at_most(320) }
     it { should validate_presence_of(:user) }
     it { should validate_presence_of(:review) }
-
   end
 
   describe 'associations' do
@@ -22,7 +21,6 @@ describe Comment do
 
       expect(comment.owner?(user)).to eql(true)
     end
-
     it 'should return false if user is not owner' do
       comment = FactoryGirl.create(:comment)
       user = FactoryGirl.create(:user)
