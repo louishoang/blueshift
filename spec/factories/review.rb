@@ -12,7 +12,8 @@ FactoryGirl.define do
 
     body "I didnt like this show because it wasnt funny"
 
-
+    association :user
+    association :show
   end
 end
 

@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :genre do
 
-    name "Action"
+    sequence :name do |n|
+      "#{n}Action"
+    end
 
   end
 end

@@ -8,6 +8,7 @@ class ShowsController < ApplicationController
   def show
     @show = Show.find(params[:id])
     @review = Review.new
+    @comment = Comment.new
   end
 
 end
