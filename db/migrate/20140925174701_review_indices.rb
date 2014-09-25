@@ -4,6 +4,6 @@ class ReviewIndices < ActiveRecord::Migration
   end
 
   def down
-     remove_index :reviews, [:show_id, :user_id]
+    remove_index :reviews, [:show_id, :user_id]
   end
 end

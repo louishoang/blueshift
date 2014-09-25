@@ -4,6 +4,6 @@ class CommentsIndices < ActiveRecord::Migration
   end
 
   def down
-     remove_index :comments, [:review_id, :user_id]
+    remove_index :comments, [:review_id, :user_id]
   end
 end
