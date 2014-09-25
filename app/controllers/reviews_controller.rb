@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
       flash[:notice]= "Review created successfully"
       redirect_to show_path(params[:show_id])
     else
+      binding.pry
       flash[:notice]= "You didn't enter enough information."
       render :new
     end
