@@ -11,8 +11,8 @@ describe Comment do
   end
 
   describe 'associations' do
-    it { should belong_to(:review)}
-    it { should belong_to(:user)}
+    it { should belong_to(:review) }
+    it { should belong_to(:user) }
   end
 
   describe '#owner?' do

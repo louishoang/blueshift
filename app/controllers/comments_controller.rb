@@ -11,20 +11,18 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.review_id = params[:review_id]
-
     if @comment.save
-      flash[:notice]= "Comment created successfully"
+      flash[:notice] = "Comment created successfully"
       redirect_to show_path(params[:show_id])
     else
       @show = Show.find(params[:show_id])
       @review = Review.find(params[:review_id])
-      flash[:notice]= "You didn't enter enough information."
-      render :new #still needs to be fixed
+      flash[:notice] = "You didn't enter enough information."
+      render :new
     end
   end
 
   def edit
-
     @comment = Comment.find(params[:id])
     @review = Review.find(params[:review_id])
     @show = Show.find(params[:show_id])
@@ -32,21 +30,19 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-
     if @comment.update(comment_params)
-      flash[:notice]= "Comment updated successfully"
+      flash[:notice] = "Comment updated successfully"
       redirect_to show_path(params[:show_id])
     else
-      flash[:notice]= "You didn't enter enough information."
-      render 'edit'
+      flash[:notice] = "You didn't enter enough information."
+      render :edit
     end
 
   end
 
   def show
-    @comment_id = params[:id]
-    @comment = Comment.destroy(@comment_id)
-    if @comment.save
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
       flash[:notice] = "Comment deleted successfully"
       redirect_to show_path(params[:show_id])
     end

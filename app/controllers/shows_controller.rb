@@ -9,7 +9,6 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
     @review = Review.new
     @comment = Comment.new
-
   end
 
 end
