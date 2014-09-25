@@ -9,5 +9,4 @@ class ShowsController < ApplicationController
     @show = Show.find(params[:id])
     @review = Review.new
   end
-
 end

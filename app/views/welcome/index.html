@@ -4,7 +4,6 @@
 <% if current_user.role != "admin" %>
   <%= link_to "See shows", shows_path %>
 <% else %>
-  <% current_user.role == "admin" %>
   <%= link_to "See shows", admin_shows_path %>
   <%= link_to "See users", admin_users_path %>
 <% end %>

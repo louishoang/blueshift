@@ -5,7 +5,6 @@ module Admin
     end
 
     def destroy
-
       @user = User.find(params[:id])
       if @user.destroy
         flash[:notice] = "User has been successfully deleted"
@@ -15,6 +14,5 @@ module Admin
         redirect_to admin_users_path
       end
     end
-
   end
 end
