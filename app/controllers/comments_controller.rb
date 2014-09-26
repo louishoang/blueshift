@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment created successfully"
       redirect_to show_path(params[:show_id])
     else
-      binding.pry
       @show = Show.find(params[:show_id])
       @review = Review.find(params[:review_id])
       flash[:notice] = "You didn't enter enough information."
