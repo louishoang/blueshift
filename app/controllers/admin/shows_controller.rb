@@ -4,7 +4,7 @@ module Admin
       if params[:search]
         @shows = Show.search(params[:search]).order("name")
       else
-        @shows = Show.all.order("name")
+        @shows = Show.order("name")
       end
     end
 
@@ -23,7 +23,5 @@ module Admin
       @show = Show.find(params[:id])
       @review = Review.new
     end
-
-
   end
 end
