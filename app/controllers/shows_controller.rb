@@ -2,7 +2,11 @@ class ShowsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @shows = Show.all
+    if params[:search]
+      @shows = Show.search(params[:search]).order("name")
+    else
+      @shows = Show.all.order("name")
+    end
   end
 
   def show
@@ -10,4 +14,6 @@ class ShowsController < ApplicationController
     @review = Review.new
     @comment = Comment.new
   end
+
+
 end

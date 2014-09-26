@@ -13,9 +13,9 @@
       <% if !user_signed_in? %>
         <%= link_to "Sign up", new_user_registration_path %>
       <% elsif current_user && current_user.role == "member" %>
-        <%= link_to "See shows", shows_path %>
+        <%= link_to "See all shows", shows_path %>
       <% elsif current_user.role == "admin" %>
-        <%= link_to "See shows", admin_shows_path %>
+        <%= link_to "See all shows", admin_shows_path %>
         <li class = "active"><%= link_to "See users", admin_users_path %></li>
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %>
@@ -24,6 +24,11 @@
 
      <% if !user_signed_in? %>
         <li class ="active"><a href="/users/sign_in">Sign In</a></li>
+      <% end %>
+      <li>
+      <%= form_tag(shows_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Shows" %></li>
+        <li><%= submit_tag "Search", :title => nil %></li>
       <% end %>
     </ul>
 

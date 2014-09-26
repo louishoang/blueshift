@@ -1,7 +1,11 @@
 module Admin
   class ShowsController < ApplicationController
     def index
-      @shows = Show.all
+      if params[:search]
+        @shows = Show.search(params[:search]).order("name")
+      else
+        @shows = Show.all.order("name")
+      end
     end
 
     def destroy

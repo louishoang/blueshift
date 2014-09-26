@@ -13,14 +13,17 @@
 
   <body>
     <%= render 'layouts/main_navbar' %>
+    <%= flash[:notice] %>
 
   <div class="row">
     <div class="small-12 columns">
       <%= yield %>
     </div>
-
   </div>
 
     <%= javascript_include_tag "application" %>
+
+
+    <div id="footer">About Us</div>
   </body>
 </html>
