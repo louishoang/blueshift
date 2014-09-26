@@ -15,6 +15,8 @@ feature "User registration, sign in and sign out" do
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
     fill_in "Password confirmation", with: user.password
+    attach_file "Profile photo", Rails.root.join('spec/file_fixtures/profile.jpg')
+
     click_on "Register"
 
     expect(page).to have_content("Welcome! You have signed up successfully.")

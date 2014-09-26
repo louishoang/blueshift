@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.0.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem "fog"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -28,7 +29,15 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+
 gem 'foundation-rails'
+
+gem 'rails_12factor', group: :production
+
+gem 'httparty'
+
+gem 'carrierwave'
+
 
 group :development, :test do
   gem 'valid_attribute'
@@ -39,5 +48,5 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'factory_girl'
-  gem 'httparty'
+  gem 'dotenv-rails'
 end

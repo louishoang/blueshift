@@ -29,11 +29,30 @@
     <p>
       <%= review.body %>
     </p>
+
     <% if current_user.username == review.user.username  || current_user.role == "admin"%>
       <%= link_to "Edit review", edit_show_review_path(@show, review) %>
       <%= link_to "Delete review", show_review_path(@show, review) %>
     <% end %>
+
+    <ul>
+      <% review.comments.each do |comment| %>
+        <li>
+          <%= comment.text %>
+
+          <% if comment.owner?(current_user) %>
+            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment)   %>
+            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment)   %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <%= link_to "Edit review", edit_show_review_path(@show, review) %>
+    <%= link_to "Delete review", show_review_path(@show, review) %>
+    <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment)   %>
+
   </li>
 
 <% end %>
+
 </ul>
