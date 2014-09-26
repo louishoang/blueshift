@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
   end
 
   def edit
-
     @comment = Comment.find(params[:id])
     @review = Review.find(params[:review_id])
     @show = Show.find(params[:show_id])
