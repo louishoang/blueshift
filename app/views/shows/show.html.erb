@@ -20,36 +20,32 @@
 
 <ul>
 <% @show.reviews.order(created_at: :desc).each do |review| %>
-
   <li>
     <%= review.user.username %>  <%= review.created_at %>
-    <p><b><%= review.title %></b></p>
-    <p><%= review.body %></p>
-
+    <p>
+      <%= review.title %>
+    </p>
+    <p>
+      <%= review.body %>
+    </p>
     <% if current_user.username == review.user.username  || current_user.role == "admin"%>
-      <small>
         <%= link_to "Edit review", edit_show_review_path(@show, review) %>
         <%= link_to "Delete review", show_review_path(@show, review) %>
-      </small>
     <% end %>
-
     <ul>
+      <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %>
       <% review.comments.each do |comment| %>
-        <small><%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment)%></small>
         <li>
           <%= comment.text %>
-
           <% if comment.owner?(current_user) %>
-            <p><small><%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment)   %>
-            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment)   %>
-          </p></small>
+            <p>
+              <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment) %>
+              <%= link_to "Delete comment", show_review_comment_path(@show, review, comment) %>
+            </p>
           <% end %>
         </li>
       <% end %>
     </ul>
-
   </li>
-
 <% end %>
-
 </ul>

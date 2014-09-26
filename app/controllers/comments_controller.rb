@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.review_id = params[:review_id]
     if @comment.save
+      CommentNotification.notification(@comment).deliver
       flash[:notice] = "Comment created successfully"
       redirect_to show_path(params[:show_id])
     else

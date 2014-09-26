@@ -14,5 +14,5 @@ class Review < ActiveRecord::Base
   validates :body,
     presence: true,  length: {minimum: 10}
   validates :score,
-  presence: true
+    presence: true
 end

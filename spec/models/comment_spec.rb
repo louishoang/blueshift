@@ -6,7 +6,7 @@ describe Comment do
     it { should ensure_length_of(:text).is_at_least(20) }
     it { should ensure_length_of(:text).is_at_most(320) }
     it { should validate_presence_of(:user) }
-    it { should validate_presence_of(:review) }
+    #it { should validate_presence_of(:review) }
   end
 
   describe 'associations' do
