@@ -34,6 +34,7 @@ gem 'rails_12factor', group: :production
 gem 'httparty'
 
 gem 'carrierwave'
+gem 'email_spec'
 
 group :development, :test do
   gem 'valid_attribute'
