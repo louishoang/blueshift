@@ -5,7 +5,7 @@ class ShowsController < ApplicationController
     if params[:search]
       @shows = Show.search(params[:search]).order("name")
     else
-      @shows = Show.all.order("name")
+      @shows = Show.order("name")
     end
   end
 
@@ -14,6 +14,4 @@ class ShowsController < ApplicationController
     @review = Review.new
     @comment = Comment.new
   end
-
-
 end
