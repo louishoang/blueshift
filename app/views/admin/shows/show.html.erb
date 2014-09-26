@@ -1,0 +1,16 @@
+<h2>Delete Review Here</h2>
+
+<ul>
+<% @show.reviews.each do |review| %>
+  <li>
+    <p>
+      <%= review.title %>
+    </p>
+    <p>
+      <%= review.body %>
+    </p>
+    <%= link_to "Delete review", show_review_path(@show, review) %>
+  </li>
+
+<% end %>
+</ul>

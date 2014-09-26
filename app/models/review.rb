@@ -10,9 +10,9 @@ class Review < ActiveRecord::Base
   validates :show,
     presence: true
   validates :title,
-    presence: true
+    presence: true, length: {minimum: 5}
   validates :body,
-    presence: true
+    presence: true,  length: {minimum: 10}
   validates :score,
     presence: true
 end

@@ -9,7 +9,6 @@ feature "reviewer recieves email when commenter submits a comment" do
     sign_in_as(comment.user)
 
     visit show_path(comment.review.show)
-
     click_on "Add comment"
 
     fill_in "Text", with: comment.text

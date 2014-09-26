@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
       redirect_to show_path(params[:show_id])
     else
       flash[:notice]= "You didn't enter enough information."
-      render :new
+      redirect_to show_path(params[:show_id])
     end
   end
 

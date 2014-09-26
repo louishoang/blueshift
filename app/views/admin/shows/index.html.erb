@@ -1,0 +1,9 @@
+Here is a list of shows:
+<ul>
+<% @shows.each do |show| %>
+  <li><%= link_to show.name, show_path(show) %>
+  <%= link_to "Delete show", admin_show_path(show), method: :delete %></li>
+</ul>
+<% end %>
+
+

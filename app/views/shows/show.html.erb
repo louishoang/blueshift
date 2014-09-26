@@ -1,4 +1,11 @@
-<h2>Add Review Here</h2>
+<h2>Show details</h2>
+
+<h5><%= @show.name %></h5>
+<p><%= @show.genre.name %></p>
+<p><%= @show.description %></p>
+<p><%= @show.year %></p>
+
+<h4>Add Review Here</h4>
 
 <%= form_for [@show, @review] do |f| %>
 
@@ -12,31 +19,33 @@
 <% end %>
 
 <ul>
-<% @show.reviews.each do |review| %>
+<% @show.reviews.order(created_at: :desc).each do |review| %>
   <li>
+    <%= review.user.username %>  <%= review.created_at %>
     <p>
       <%= review.title %>
     </p>
     <p>
       <%= review.body %>
     </p>
+    <% if current_user.username == review.user.username  || current_user.role == "admin"%>
+        <%= link_to "Edit review", edit_show_review_path(@show, review) %>
+        <%= link_to "Delete review", show_review_path(@show, review) %>
+    <% end %>
     <ul>
+      <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %>
       <% review.comments.each do |comment| %>
         <li>
           <%= comment.text %>
-
           <% if comment.owner?(current_user) %>
-            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment)   %>
-            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment)   %>
+            <p>
+              <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment) %>
+              <%= link_to "Delete comment", show_review_comment_path(@show, review, comment) %>
+            </p>
           <% end %>
         </li>
       <% end %>
     </ul>
-    <%= link_to "Edit review", edit_show_review_path(@show, review) %>
-    <%= link_to "Delete review", show_review_path(@show, review) %>
-    <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment)   %>
   </li>
-
 <% end %>
-
 </ul>
