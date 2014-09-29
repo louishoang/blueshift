@@ -3,9 +3,9 @@ class ShowsController < ApplicationController
 
   def index
     if params[:search]
-      @shows = Show.search(params[:search]).order("name")
+      @shows = Show.search(params[:search]).order("name").page(params[:page])
     else
-      @shows = Show.order("name")
+      @shows = Show.order("name").page(params[:page])
     end
   end
 

@@ -38,6 +38,7 @@ gem 'httparty'
 
 gem 'carrierwave'
 gem 'email_spec'
+gem 'kaminari'
 
 
 group :development, :test do
