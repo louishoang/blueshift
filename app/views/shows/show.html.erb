@@ -47,8 +47,9 @@
       <% end %>
     </ul>
   </li>
-  <% sum = 0 %>
-  <% Vote.all.each do |vote| %>
+
+<% sum = 0 %>
+  <% review.votes.each do |vote| %>
     <% sum += vote.score %>
   <% end %>
 
