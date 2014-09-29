@@ -26,7 +26,6 @@ dictionary.each do |word|
   show_url = "http://api.trakt.tv/search/shows.json/b6cb98c70268917b494f3ed68fd73720?query=" + word
   response = HTTParty.get(show_url)
   shows = JSON.parse(response.body)
-
   shows.each do |show|
     Show.find_or_create_by(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"])
   end
