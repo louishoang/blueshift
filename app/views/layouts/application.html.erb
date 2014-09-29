@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "TV Shows" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,7 +12,13 @@
   </head>
   <body>
     <%= render 'layouts/main_navbar' %>
-    <%= flash[:notice] %>
+    <% if flash.any? %>
+      <div class="alert-box secondary">
+        <div class="container">
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    <% end %>
 
     <div class="row">
       <div class="small-12 columns">
@@ -21,6 +27,6 @@
     </div>
 
     <%= javascript_include_tag "application" %>
-    <div id="footer">About Us</div>
+
   </body>
 </html>
