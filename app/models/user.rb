@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :username, presence: true, length: { in: (6..32) }
   has_many :reviews
+  has_many :votes
 end

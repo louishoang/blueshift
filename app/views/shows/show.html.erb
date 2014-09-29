@@ -47,6 +47,15 @@
       <% end %>
     </ul>
   </li>
+
+<% sum = 0 %>
+  <% review.votes.each do |vote| %>
+    <% sum += vote.score %>
+  <% end %>
+
+  Current Score: <%= sum  %><br>
+  <%= link_to "upvote", upvote_review_path(review), method: :post %>
+  <%= link_to "downvote", downvote_review_path(review), method: :post %>
 <% end %>
 </ul>
 

@@ -6,6 +6,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :reviews do
+    member do
+      post "upvote", to: "votes#upvote"
+      post "downvote", to: "votes#downvote"
+    end
+  end
+
   namespace :admin do
     resources :users
     resources :shows
