@@ -1,17 +1,15 @@
 class VotesController < ApplicationController
   def upvote
-    review_id = params["id"]
-    @review = Review.find(review_id)
-    @review.score += 1
-    @review.save
-    redirect_to show_path(params["show_id"])
+    @vote = Vote.find_or_initialize_by(user: current_user, review: Review.find(params["id"]))
+    @vote.score = 1
+    @vote.save
+    redirect_to show_path(Review.find(params["id"]).show.id)
   end
 
   def downvote
-    review_id = params["id"]
-    @review = Review.find(review_id)
-    @review.score -= 1
-    @review.save
-    redirect_to show_path(params["show_id"])
+    @vote = Vote.find_or_initialize_by(user: current_user, review: Review.find(params["id"]))
+    @vote.score = -1
+    @vote.save
+    redirect_to show_path(Review.find(params["id"]).show.id)
   end
 end

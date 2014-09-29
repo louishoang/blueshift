@@ -1,5 +1,7 @@
 class Vote < ActiveRecord::Base
-  # validates
   belongs_to :review
+  belongs_to :user
 
+  validates :user,
+    uniqueness: true
 end
