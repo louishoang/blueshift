@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 20140925185000) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["review_id", "user_id"], name: "index_comments_on_review_id_and_user_id", unique: true, using: :btree
-
   create_table "genres", force: true do |t|
     t.text     "name",       null: false
     t.datetime "created_at"
@@ -41,8 +39,6 @@ ActiveRecord::Schema.define(version: 20140925185000) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "reviews", ["show_id", "user_id"], name: "index_reviews_on_show_id_and_user_id", unique: true, using: :btree
 
   create_table "shows", force: true do |t|
     t.string   "name",        null: false
@@ -67,8 +63,8 @@ ActiveRecord::Schema.define(version: 20140925185000) do
     t.string   "username",                                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "profile_photo"
     t.string   "role",                   default: "member", null: false
+    t.string   "profile_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
