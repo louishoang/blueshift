@@ -47,5 +47,8 @@
       <% end %>
     </ul>
   </li>
+  Current Score: <%= review.score %><br>
+  <%= link_to "upvote", upvote_show_review_path(@show, review), method: :post %>
+  <%= link_to "downvote", downvote_show_review_path(@show, review), method: :post %>
 <% end %>
 </ul>
