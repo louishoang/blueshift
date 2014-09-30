@@ -1,3 +1,3 @@
 class CommentConfirmation < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "Admin@Blue_Shift.com"
 end

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140930141328) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "year"
+    t.string   "poster"
   end
 
   create_table "users", force: true do |t|
