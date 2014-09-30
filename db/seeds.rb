@@ -27,7 +27,7 @@ dictionary.each do |word|
   response = HTTParty.get(show_url)
   shows = JSON.parse(response.body)
   shows.each do |show|
-    Show.find_or_create_by(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"])
+    Show.find_or_create_by(name: show["title"], description: show["overview"], genre_id: genre_and_genre_id[show["genres"].first], year: show["year"], poster: show["images"]["poster"])
   end
 end
 

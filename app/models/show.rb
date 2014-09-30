@@ -1,5 +1,5 @@
 class Show < ActiveRecord::Base
-  paginates_per 25
+  paginates_per 24
   def self.search(query)
     where("name ilike ?", "%#{query}%")
   end

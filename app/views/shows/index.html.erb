@@ -1,8 +1,12 @@
 List of shows:
-
-<ul>
+<div>
   <% @shows.each do |show| %>
-  <li><%= link_to show.name, show_path(show) %></li>
-<% end %>
-</ul>
-<%= paginate @shows %>
+    <div class="small-3 columns">
+      <%= link_to image_tag(show.poster, alt: "Poster", class: "poster"), show_path(show) %>
+      <div><%= show.name %></div>
+    </div>
+  <% end %>
+</div>
+
+  <%= paginate @shows %>
+
