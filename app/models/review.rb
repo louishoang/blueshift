@@ -15,4 +15,6 @@ class Review < ActiveRecord::Base
     presence: true,  length: {minimum: 10}
   validates :score,
     presence: true
+  validates :rating,
+    presence: true, inclusion: { in: 1..10 }
 end
