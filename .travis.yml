@@ -1,11 +1,5 @@
 language: ruby
 rvm:
-<<<<<<< HEAD
-  - 2.1.0
-before_script:
-  - psql -c 'create database YOUR_APP_NAME_test;' -U postgres
-=======
-  - 2.0.0
+  - 2.0.0-p481
 before_script:
   - psql -c 'create database blueshift_test;' -U postgres
->>>>>>> 7f8a9b6d20e9e987e6889f82d20c032e1ad47c95
