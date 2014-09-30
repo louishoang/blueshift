@@ -40,6 +40,9 @@ gem 'carrierwave'
 gem 'email_spec'
 gem 'kaminari'
 
+group :test do
+  gem 'coveralls', require: false
+end
 
 group :development, :test do
   gem 'valid_attribute'
