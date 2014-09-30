@@ -1,5 +1,5 @@
 class CommentNotification < ActionMailer::Base
-  default from: "Admin@Blue-Shift.com"
+  default from: "NoReply@Blue-Shift.com"
 
   def notification(comment)
     @comment = comment

@@ -20,7 +20,7 @@ genres.each do |genre|
   genre_and_genre_id[genre["name"]] = genre["id"]
 end
 
-dictionary = ["the", "hand", "big", "and", "we", "cop", "of", "in", "with", "she", "you"]
+dictionary = ["the", "hand", "big", "and", "we", "cop", "of", "in", "with", "she", "you", "our", "thier", "family", "friends", "girl", "boy"]
 
 dictionary.each do |word|
   show_url = "http://api.trakt.tv/search/shows.json/b6cb98c70268917b494f3ed68fd73720?query=" + word

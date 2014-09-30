@@ -19,7 +19,7 @@ feature "User registration, sign in and sign out" do
 
     click_on "Register"
 
-    expect(page).to have_content("Welcome! You have signed up successfully.")
+    expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
   end
 
   #user signs in

@@ -1,9 +1,10 @@
 List of shows:
 <div>
   <% @shows.each do |show| %>
-    <div class="small-3 columns">
-      <%= link_to image_tag(show.poster, alt: "Poster", class: "poster"), show_path(show) %>
-      <div><%= show.name %></div>
+    <div class="small-3 columns left">
+        <%= link_to image_tag(show.poster, alt: "Poster", class: "poster"),show_path(show) %>
+      <div class="small-12 columns poster_title"><%= link_to show.name, show_path(show)%>
+      </div>
     </div>
   <% end %>
 </div>
