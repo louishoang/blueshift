@@ -9,6 +9,7 @@ FactoryGirl.define do
     end
 
     password "12345678"
+    confirmed_at Time.now
 
     trait :admin do
       role "admin"

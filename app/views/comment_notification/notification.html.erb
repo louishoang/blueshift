@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Review </title>
-  </head>
-  <body>
-    <h2>
-      A comment has been added to your review by: <%= @comment.user.username %>
-    </h2>
-    <h3> Review: </h3>
-      <div>
-        <%= @comment.review.title %>
-       </div>
-     <h3>Comment:</h3>
-       <div>
-        <%= @comment.text %>
-       </div>
-  </body>
-</html>
+<h2>
+  A comment has been added to your review by: <%= @comment.user.username %>
+</h2>
+<h3> Review: </h3>
+  <div>
+    <%= @comment.review.title %>
+   </div>
+ <h3>Comment:</h3>
+   <div>
+    <%= @comment.text %>
+   </div>
 
 
 
