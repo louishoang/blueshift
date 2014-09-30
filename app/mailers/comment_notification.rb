@@ -6,4 +6,10 @@ class CommentNotification < ActionMailer::Base
     mail to: @comment.review.user.email,
       subject: "There is a new comment on your review"
   end
+
+  def registration(user)
+    @user = user
+    mail to: @user.email,
+      subject: "You are now registered with Blue-Shift!"
+  end
 end
