@@ -22,14 +22,21 @@
       <% end %>
       </li>
 
-     <% if !user_signed_in? %>
+      <% if !user_signed_in? %>
         <li class ="active"><a href="/users/sign_in">Sign In</a></li>
       <% end %>
       <li>
-      <%= form_tag(shows_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Shows" %></li>
-        <li><%= submit_tag "Search", :title => nil %></li>
-      <% end %>
+        <%= form_tag(shows_path, :method => "get", id: "search-form") do %>
+        <ul>
+          <li>
+            <%= text_field_tag :search, params[:search], placeholder: "Search Shows", name: 'search' %>
+          </li>
+          <li>
+            <%= submit_tag "Search", :title => nil %>
+          </li>
+        </ul>
+        <% end %>
+      </li>
     </ul>
 
     <% if user_signed_in? %>
