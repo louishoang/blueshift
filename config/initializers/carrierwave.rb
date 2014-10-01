@@ -5,9 +5,10 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],                        # required
   }
 
-  if Rails.env.development?
+  if Rails.env.development? || Rails.env.test?
     config.fog_directory  = "blue-shift-#{Rails.env}-#{ENV['DEVELOPER_NAME']}"
   elsif  Rails.env.production?
     config.fog_directory  = "blue-shift-#{Rails.env}"
   end                    # required
 end
+
