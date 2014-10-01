@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  validates :text, presence: true, length: { in: (20..320) }
+  validates :text, presence: true, length: { in: (5..320) }
   validates :review, presence: true
   validates :user, presence: true
 

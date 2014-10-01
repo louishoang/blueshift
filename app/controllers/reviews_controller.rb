@@ -15,9 +15,6 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       flash[:notice]= "Review updated successfully"
       redirect_to show_path(params[:show_id])
-    else
-      flash[:notice]= "You didn't enter enough information."
-      render 'edit'
     end
   end
 

@@ -18,4 +18,5 @@ feature "user edits review" do
     click_on "Edit review"
     expect(page).to have_content("Review updated successfully")
   end
+
 end
