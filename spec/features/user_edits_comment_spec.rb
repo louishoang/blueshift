@@ -17,7 +17,6 @@ feature "User edits comment" do
     sign_in_as(comment.user)
     visit show_path(comment.review.show)
     click_on "Edit comment"
-    save_and_open_page
     fill_in "Text", with: ""
     click_on "Submit Comment"
     expect(page).to have_content("You didn't enter enough information, please try again.")

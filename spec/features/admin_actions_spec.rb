@@ -28,7 +28,6 @@ feature "Admin actions" do
     sign_in_as(admin)
     click_on "See all shows"
     click_on "Delete show"
-      save_and_open_page
     expect(page).to have_content("Show has been successfully deleted")
   end
 
