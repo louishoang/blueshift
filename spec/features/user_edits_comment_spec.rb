@@ -11,6 +11,17 @@ feature "User edits comment" do
     click_on "Submit Comment"
     expect(page).to have_content("Comment updated successfully")
   end
+
+  scenario 'authenticated user tries creating a blank comment on a review for a show' do
+    comment = FactoryGirl.create(:comment)
+    sign_in_as(comment.user)
+    visit show_path(comment.review.show)
+    click_on "Edit comment"
+    fill_in "Text", with: ""
+    click_on "Submit Comment"
+    expect(page).to have_content("You didn't enter enough information, please try again.")
+  end
+
   scenario 'authenticated user cannot edit commentors review unless commenter' do
     user = FactoryGirl.create(:user)
     comment = FactoryGirl.create(:comment)

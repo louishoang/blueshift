@@ -13,9 +13,6 @@ module Admin
       if @show.destroy
         flash[:notice] = "Show has been successfully deleted"
         redirect_to shows_path
-      else
-        flash[:notice] = "Show has been deleted successfully"
-        redirect_to shows_path
       end
     end
 

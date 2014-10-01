@@ -35,8 +35,8 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment updated successfully"
       redirect_to show_path(params[:show_id])
     else
-      flash[:notice] = "You didn't enter enough information."
-      render :edit
+      flash[:notice] = "You didn't enter enough information, please try again."
+      redirect_to show_path(params[:show_id])
     end
   end
 
