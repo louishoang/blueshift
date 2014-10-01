@@ -1,0 +1,17 @@
+<div class="row">
+<% @show.reviews.order(created_at: :desc).each do |review| %>
+<div class="large-12">
+  <div class="panel">
+    <div>
+      <h5 class="hide-for-small"><%= review.title %></h5>
+    </div>
+    <div>
+      <h6 class="hide-for-small"><%= review.body %>
+        <%= link_to "upvote", upvote_review_path(review), method: :post %>
+        <%= link_to "downvote", downvote_review_path(review), method: :post %></h6>
+    </div>
+
+  </div>
+</div>
+<% end %>
+</div>

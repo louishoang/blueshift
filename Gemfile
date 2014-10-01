@@ -54,4 +54,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'factory_girl'
   gem 'dotenv-rails'
+  gem 'jquery-star-rating-rails'
 end
