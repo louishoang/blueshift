@@ -20,6 +20,12 @@ feature "User registration, sign in and sign out" do
     click_on "Register"
 
     expect(page).to have_content("A message with a confirmation link has been sent to your email address.")
+
+    # the email we just sent should have the proper subject and recipient:
+    last_email = ActionMailer::Base.deliveries.last
+    expect(last_email).to have_subject('Confirmation instructions')
+    expect(last_email).to deliver_to(user.email)
+    expect(last_email.body).to have_content("Confirm my account")
   end
 
   #user signs in
@@ -27,7 +33,7 @@ feature "User registration, sign in and sign out" do
   scenario 'user signs in with correct credentials' do
 
     user = FactoryGirl.create(:user)
-
+    user.confirmed_at = Time.now
     visit new_user_session_path
 
     fill_in "Email", with: user.email
