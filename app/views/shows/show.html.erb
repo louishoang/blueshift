@@ -37,7 +37,7 @@
 <ul>
 <% @show.reviews.order(created_at: :desc).each do |review| %>
   <li>
-    <%= review.user.username %>  <%= review.created_at %>
+    <%= link_to review.user.username, user_path(review.user.id) %> Reviewed At:  <%= review.created_at %>
     <p>
       <%= review.title %>
     </p>
@@ -52,6 +52,7 @@
       <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %>
       <% review.comments.each do |comment| %>
         <li>
+          <%= link_to comment.user.username, user_path(comment.user.id) %> commented:<br>
           <%= comment.text %>
           <% if comment.owner?(current_user) %>
             <p>
