@@ -39,7 +39,7 @@ gem 'httparty'
 gem 'carrierwave'
 gem 'email_spec'
 gem 'kaminari'
-
+gem 'owlcarousel-rails'
 group :test do
   gem 'coveralls', require: false
 end
