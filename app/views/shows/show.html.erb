@@ -43,22 +43,22 @@
 <div class="large-12">
   <div class="panel">
     <div>
-      <h5 class="hide-for-small"><strong><%= review.title %></strong></h5>
+      <h5><strong><%= review.title %></strong></h5>
     </div>
     <div>
-      <h6 class="hide-for-small"><%= review.body %></h6>
+      <h6><%= review.body %></h6>
         <p>
-          Vote Count: <%= review.vote_score  %>
+          Current Score: <%= review.vote_score  %>
         </p>
         <%= link_to "upvote", upvote_review_path(review), method: :post %>
         <%= link_to "downvote", downvote_review_path(review), method: :post %>
-      <h6 class="hide-for-small"><% if current_user.username == review.user.username  || current_user.role == "admin"%>
+      <h6><% if current_user.username == review.user.username  || current_user.role == "admin"%>
       <%= link_to "Edit review", edit_show_review_path(@show, review) %>
       <%= link_to "Delete review", show_review_path(@show, review) %></h6></hr>
+      <% end %>
+      <h6><%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %></h6>
 
-      <h6 class="hide-for-small"><%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %></h6>
       <div class="panel">
-
       <% review.comments.each do |comment| %>
       <li>
         <%= comment.text %>
@@ -69,15 +69,13 @@
           </p>
         <% end %>
       </li>
-    <% end %>
-
-
-
+      <% end %>
       </div>
+
     </div>
   </div>
 </div>
-<% end %>
+
 </div>
 <% end %>
 </div>
