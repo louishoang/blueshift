@@ -1,6 +1,4 @@
 module Admin
-  before_filter :authorize_admin!
-
   class ShowsController < ApplicationController
     def index
       if params[:search]
