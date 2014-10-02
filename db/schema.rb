@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140930141328) do
+ActiveRecord::Schema.define(version: 20141002150720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20140930141328) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "genres", force: true do |t|
     t.text     "name",       null: false
@@ -39,7 +42,11 @@ ActiveRecord::Schema.define(version: 20140930141328) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "rating"
+    t.integer  "vote_score", default: 0
   end
+
+  add_index "reviews", ["show_id"], name: "index_reviews_on_show_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "shows", force: true do |t|
     t.string   "name",        null: false
@@ -50,6 +57,8 @@ ActiveRecord::Schema.define(version: 20140930141328) do
     t.integer  "year"
     t.string   "poster"
   end
+
+  add_index "shows", ["genre_id"], name: "index_shows_on_genre_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",       null: false
@@ -85,5 +94,8 @@ ActiveRecord::Schema.define(version: 20140930141328) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "votes", ["review_id"], name: "index_votes_on_review_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end
