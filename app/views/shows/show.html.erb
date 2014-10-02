@@ -9,11 +9,7 @@
         <h4 class="hide-for-small"><%= @show.name %></h4>
         <h6 class="hide-for-small"><%= @show.genre.name %></h6>
         <h6 class="hide-for-small"><%= @show.year %></h6>
-        <% sum = 0 %>
-          <% @show.reviews.each do |review| %>
-            <% sum += review.rating %>
-          <% end %>
-        <h6>Average rating: <%= sum.to_f / @show.reviews.size %></h6>
+        <h6>Average rating: <%= @show.average_rating %></h6>
         <h6 class="subheader"><hr/><%= @show.description %></h6>
       </div>
     </div>
@@ -42,7 +38,7 @@
 </div>
 </div>
 
-<% @show.reviews.order(created_at: :desc).each do |review| %>
+<% @reviews.each do |review| %>
 <div class="row">
 <div class="large-12">
   <div class="panel">
@@ -51,12 +47,9 @@
     </div>
     <div>
       <h6 class="hide-for-small"><%= review.body %></h6>
-        <% sum = 0 %>
-          <% review.votes.each do |vote| %>
-            <% sum += vote.score %>
-          <% end %>
-
-        Vote Count: <%= sum  %>
+        <p>
+          Vote Count: <%= review.vote_score  %>
+        </p>
         <%= link_to "upvote", upvote_review_path(review), method: :post %>
         <%= link_to "downvote", downvote_review_path(review), method: :post %>
       <h6 class="hide-for-small"><% if current_user.username == review.user.username  || current_user.role == "admin"%>
