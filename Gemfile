@@ -45,6 +45,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'rack-mini-profiler'
   gem 'valid_attribute'
   gem 'shoulda'
   gem 'pry-rails'
@@ -54,4 +55,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'factory_girl'
   gem 'dotenv-rails'
+  gem 'jquery-star-rating-rails'
 end
