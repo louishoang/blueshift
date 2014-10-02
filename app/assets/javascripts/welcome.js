@@ -1,8 +1,13 @@
 $( document ).ready(function() {
-  $(".your-class").owlCarousel({
+  $(".slideshow").owlCarousel({
     slideSpeed: 300,
     singleItem: true,
-    autoPlay: true
+    autoPlay: true,
+
+    // Responsive
+    responsive: true,
+    responsiveRefreshRate : 50,
+    responsiveBaseWidth: window,
   });
 });
 

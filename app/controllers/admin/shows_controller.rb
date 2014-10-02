@@ -1,5 +1,6 @@
 module Admin
   class ShowsController < ApplicationController
+
     def index
       if params[:search]
         @shows = Show.search(params[:search]).order("name")

@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
   validates :username, presence: true, length: { in: (6..32) }
   has_many :reviews
   has_many :votes
+  has_many :comments
 end
