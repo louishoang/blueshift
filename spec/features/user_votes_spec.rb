@@ -8,6 +8,7 @@ feature "User votes review" do
     sign_in_as(vote.user)
     click_on "See all shows"
     visit show_path(vote.review.show)
+
     click_on "upvote"
     expect(page).to have_content "Current Score: 1"
   end
