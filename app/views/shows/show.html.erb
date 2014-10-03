@@ -6,9 +6,9 @@
     </div>
     <div class="large-9 columns">
       <div class="panel">
-        <h4 class="hide-for-small"><%= @show.name %></h4>
-        <h6 class="hide-for-small"><%= @show.genre.name %></h6>
-        <h6 class="hide-for-small"><%= @show.year %></h6>
+        <h4><%= @show.name %></h4>
+        <h6><%= @show.genre.name %></h6>
+        <h6><%= @show.year %></h6>
         <h6>Average rating: <%= @show.average_rating %></h6>
         <h6 class="subheader"><hr/><%= @show.description %></h6>
       </div>
@@ -21,11 +21,11 @@
     <h5>Add Review</h5>
       <%= form_for [@show, @review] do |f| %>
         <div>
-          <%= f.label :title %><br />
+          <%= f.label :title %>
           <%= f.text_field :title %>
         </div>
         <div>
-          <%= f.label :body %><br />
+          <%= f.label :body %>
           <%= f.text_area :body %>
         </div>
         <div>
@@ -48,11 +48,20 @@
     <div>
       <h6><%= review.body %></h6>
         <p>
-          Current Score: <%= review.vote_score  %>
+          Current Score: <%= review.total_vote_score %>
         </p>
-        <%= link_to "upvote", upvote_review_path(review), method: :post %>
-        <%= link_to "downvote", downvote_review_path(review), method: :post %>
-      <h6><% if current_user.username == review.user.username  || current_user.role == "admin"%>
+
+        <% if current_user.votes.find_by(review_id: review.id) == nil || current_user.votes.find_by(review_id: review.id).score != 1%>
+          <%= link_to "upvote", upvote_review_path(review), method: :post %>
+        <% else %>
+          <%= "upvote" %>
+        <% end %>
+        <% if current_user.votes.find_by(review_id: review.id) == nil || current_user.votes.find_by(review_id: review.id).score != -1%>
+          <%= link_to "downvote", downvote_review_path(review), method: :post %>
+        <% else %>
+          <%= "downvote" %>
+          <% end %>
+      <h6><% if current_user.username == review.user.username || current_user.role == "admin"%>
       <%= link_to "Edit review", edit_show_review_path(@show, review) %>
       <%= link_to "Delete review", show_review_path(@show, review) %></h6></hr>
       <% end %>
