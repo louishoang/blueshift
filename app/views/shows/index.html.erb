@@ -1,8 +1,8 @@
-List of shows:
+<br>
 <div class="row" data-equalizer>
   <% @shows.each do |show| %>
     <div class="large-3 small-4 left columns" data-equalizer-watch>
-      <div class="large-12 small-12 columns">
+      <div class="large-12 small-12 columns photos">
         <%= link_to image_tag(show.poster, alt: "Poster", class: "poster"),show_path(show) %>
       </div>
       <div class="large-12 small-12 columns poster_title">

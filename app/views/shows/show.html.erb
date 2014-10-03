@@ -32,7 +32,7 @@
           <%= f.label :rating %>
           <%= f.select :rating, (1..5) %>
         </div>
-        <div><%= f.submit "Add review" %></div>
+        <div><%= f.submit "Add review", class: "tiny button active nice round"  %></div>
       <% end %>
   </div>
 </div>
@@ -62,10 +62,10 @@
           <%= "downvote" %>
           <% end %>
       <h6><% if current_user.username == review.user.username || current_user.role == "admin"%>
-      <%= link_to "Edit review", edit_show_review_path(@show, review) %>
-      <%= link_to "Delete review", show_review_path(@show, review) %></h6></hr>
+      <%= link_to "Edit review", edit_show_review_path(@show, review), class: "tiny button active nice round"  %>
+      <%= link_to "Delete review", show_review_path(@show, review), class: "tiny button active nice round"  %></h6></hr>
       <% end %>
-      <h6><%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %></h6>
+      <h6><%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment), class: "tiny button active nice round"  %></h6>
 
       <div class="panel">
       <% review.comments.each do |comment| %>
@@ -73,8 +73,8 @@
         <%= comment.text %>
         <% if comment.owner?(current_user) %>
           <p>
-            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment) %>
-            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment) %></h6>
+            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment), class: "tiny button active nice round" %>
+            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment), class: "tiny button active nice round" %></h6>
           </p>
         <% end %>
       </li>

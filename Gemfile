@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'mini_magick'
 
 gem 'foundation-rails'
 
@@ -40,6 +41,7 @@ gem 'carrierwave'
 gem 'email_spec'
 gem 'kaminari'
 gem 'owlcarousel-rails'
+
 group :test do
   gem 'coveralls', require: false
 end
