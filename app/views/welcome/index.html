@@ -1,11 +1,7 @@
 <div class="slideshow row" style="margin-top: 40px">
-  <div>
-    <img src="http://welivefilm.com/wp-content/uploads/2014/06/22-Jump-Street-Poster-WeLiveFilm.jpg" class="slide_photos">
-  </div>
-  <div>
-    <img src="http://www.wallpaperseries.com/files/pics/Teenage%20Mutant%20Ninja%20Turtles%20Movie%202014%20Wallpaper.jpeg" class="slide_photos">
-  </div>
-  <div>
-    <img src="http://www.nzblokes.co.nz/wp-content/uploads/2014/07/Need-for-Speed-Movie-Cover.jpg" >
-  </div>
+  <% @show_images.each do |show_image| %>
+    <div>
+      <%= image_tag show_image['poster'], class: 'slide_photos' %>
+    </div>
+  <% end %>
 </div>

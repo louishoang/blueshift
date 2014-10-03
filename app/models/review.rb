@@ -17,4 +17,8 @@ class Review < ActiveRecord::Base
     presence: true
   validates :rating,
     presence: true, inclusion: { in: 1..10 }
+
+  def total_vote_score
+    votes.sum(:score)
+  end
 end
