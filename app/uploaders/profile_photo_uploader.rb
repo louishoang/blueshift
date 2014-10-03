@@ -2,7 +2,7 @@
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -17,14 +17,14 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  process :scale => [200, 300]
   #
   # def scale(width, height)
   #   # do something
   # end
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [50, 50]
+    process :resize_to_fit => [200, 200]
   end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -38,19 +38,19 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # end
 
   version :slider do
-  process :create_slider_version
-end
-
-def create_slider_version
-  img = Magick::Image.read(current_path)
-  width = img[0].columns
-  height = img[0].rows
-  if width > height
-    # original is landscape
-    resize_to_fill(738, 492)
-  else
-    # original is portrait
-    resize_to_fit(738, 492)
+    process :create_slider_version
   end
-end
+
+  def create_slider_version
+    img = Magick::Image.read(current_path)
+    width = img[0].columns
+    height = img[0].rows
+    if width > height
+      # original is landscape
+      resize_to_fill(738, 492)
+    else
+      # original is portrait
+      resize_to_fit(738, 492)
+    end
+  end
 end

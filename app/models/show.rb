@@ -1,4 +1,8 @@
 class Show < ActiveRecord::Base
+  # attr_accessor :poster
+
+  # mount_uploader :poster, ProfilePhotoUploader
+
   paginates_per 24
   def self.search(query)
     where("name ilike ?", "%#{query}%")

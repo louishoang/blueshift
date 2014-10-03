@@ -1,13 +1,13 @@
 $( document ).ready(function() {
   $(".slideshow").owlCarousel({
-    slideSpeed: 300,
-    singleItem: true,
-    autoPlay: true,
-
-    // Responsive
-    responsive: true,
-    responsiveRefreshRate : 50,
-    responsiveBaseWidth: window,
+    autoPlay : 3000,
+    stopOnHover : true,
+    navigation:true,
+    paginationSpeed : 1000,
+    goToFirstSpeed : 2000,
+    singleItem : true,
+    autoHeight : true,
+    transitionStyle:"fade"
   });
 });
 
