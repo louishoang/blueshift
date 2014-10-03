@@ -32,7 +32,7 @@
                 <%= f.label :rating %>
                 <%= f.select :rating, (1..5) %>
               </div>
-              <div><%= f.submit "Add review" %></div>
+              <div><%= f.submit "Add review", class: "nice small radius blue button" %></div>
             <% end %>
         </div>
       </div>
@@ -60,7 +60,7 @@
               </h6></hr>
 
               <h6>
-                <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment) %>
+                <%= link_to "Add comment", new_show_review_comment_path(@show, review, @comment), class: "nice small radius blue button" %>
               </h6>
 
               <ul>
@@ -80,8 +80,8 @@
                         <%= comment.text %>
                         <% if comment.owner?(current_user) %>
                           <p>
-                            <%= link_to "Edit comment", edit_show_review_comment_path(@show, review, comment) %>
-                            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment) %>
+                            <%= link_to "Edit comment ", edit_show_review_comment_path(@show, review, comment), class: "nice small radius blue button" %>
+                            <%= link_to "Delete comment", show_review_comment_path(@show, review, comment), class: "nice small radius blue button" %>
                           </p>
                         <% end %>
                       </li>
