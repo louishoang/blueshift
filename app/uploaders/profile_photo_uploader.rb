@@ -23,9 +23,9 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
-  # end
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list
@@ -36,4 +36,21 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  version :slider do
+  process :create_slider_version
+end
+
+def create_slider_version
+  img = Magick::Image.read(current_path)
+  width = img[0].columns
+  height = img[0].rows
+  if width > height
+    # original is landscape
+    resize_to_fill(738, 492)
+  else
+    # original is portrait
+    resize_to_fit(738, 492)
+  end
+end
 end

@@ -29,6 +29,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'mini_magick'
 
 gem 'foundation-rails'
 
