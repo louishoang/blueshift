@@ -8,7 +8,7 @@ feature "User adds comment" do
     member_user = FactoryGirl.create(:user, :member)
     sign_in_as(member_user)
     visit show_path(review.show)
-    save_and_open_page
+
     click_on "Add comment"
     fill_in "Text", with: review.comments.first.text
     click_on "Submit Comment"

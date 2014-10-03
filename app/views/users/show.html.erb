@@ -1,0 +1,15 @@
+<div class="panel profile_photo">
+  <img src="<%= @user.profile_photo %>" atl="profile photos" class="profile"/>
+  <div>
+    <%= @user.username %>
+  </div>
+</div>
+
+<div class="panel">
+  <% @reviews.each do |review| %>
+    <div class="panel active">
+      <div><h4><%= review.show.name %></h4><h5>Title:<br><%= review.title %> </h5></div>
+      <div><h5>Review: </h5><p><%= review.body %></p></div>
+    </div>
+  <% end %>
+</div>
